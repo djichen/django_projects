@@ -1,0 +1,30 @@
+<h2>Search movie by description</h2>
+<!-- <table border="1">
+    {% for user in li %}
+    <tr>
+    <td>{{ user }}</td>
+    <td>{{ user }}</td>
+    </tr>
+  {% endfor %}
+</table> -->
+<form class="content-section" method="POST" action="">
+    <input type="text" name="in" > <input type="submit" value="submit">
+</form>
+
+{% for movie in li %}
+			<div class="row">
+				<div class="col-md-12">
+					<article class="media content-section">
+						<div class="col-md-2">
+							
+						</div>
+						<div class="col-md-10">
+							<div class="media-body">
+								<h2><a class="article-title" target="_blank">{{ movie.title}} </a></h2>
+								<p class="article-content">{{ movie.description }}</p>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+    	{% endfor %}

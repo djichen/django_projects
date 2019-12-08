@@ -71,6 +71,12 @@ description=[]
 for line in open('description.dat', 'r',encoding="ISO-8859-1"):
     description.append(line)
 
+# count=0
+# keywords=[]
+# for line in open('keywords.dat', 'r',encoding="ISO-8859-1"):
+#     description.append(line)
+
+
 data=pd.read_csv("movies_metadata.csv")
 data=data.iloc[:,[3,8,9]]
 data=data.dropna()

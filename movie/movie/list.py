@@ -66,13 +66,27 @@ def bm25(query, num_docs_contain, this_doc, total_docs, avg_len, b, k, k3, delta
 
 count=0
 title=[]
-for line in open('title1.dat', 'r',encoding="ISO-8859-1"):
+# for line in open('title1.dat', 'r',encoding="ISO-8859-1"):
+for line in open('title2.dat', 'r'):
     title.append(line)
     
 count=0
 description=[]
-for line in open('description.dat', 'r',encoding="ISO-8859-1"):
+description_result = []
+# for line in open('description.dat', 'r',encoding="ISO-8859-1"):
+for line in open('description2.dat', 'r'):
     description.append(line)
+    description_result.append(line)
+
+
+count=0
+keywords = []
+# for line in open('description.dat', 'r',encoding="ISO-8859-1"):
+for line in open('keywords2.dat', 'r'):
+    keywords.append(line)
+
+description = [description[i][:-1] + keywords[i] for i in range(2000)]
+
 
 data=pd.read_csv("movies_metadata.csv")
 data=data.iloc[:,[3,8,9]]
@@ -136,11 +150,11 @@ def index(request):
         iter1=0
         for s in sorted_score:
             print(tit[s[0]])
-            dic = {'title':tit[s[0]], 'description':description[s[0]]}
+            dic = {'title':tit[s[0]], 'description':description_result[s[0]]}
             # li.append(tit[s[0]])
             li.append(dic)
             iter1+=1
-            if iter1>4:
+            if iter1>9:
                 break
     else:
         li = ['none']
