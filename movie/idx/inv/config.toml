@@ -1,0 +1,9 @@
+stop-words = "lemur-stopwords.txt"
+index = "idx"
+corpus = "tutorial.toml"
+dataset = "description"
+prefix = "."
+[[analyzers]]
+	filter = "default-unigram-chain"
+	ngram = 1
+	method = "ngram-word"
